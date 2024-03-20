@@ -110,7 +110,7 @@ soStorage.command = function(command, parameter1, parameter2, parameter3) {
 				
 				catch(error) {	// this is for command 'get'
 					
-					console.log('soStorage: (' + command + ') has no results');
+					console.log('soStorage: (' + command + ': ' + parameter1 + ') has no results');
 				}							
 
 
@@ -131,7 +131,7 @@ soStorage.command = function(command, parameter1, parameter2, parameter3) {
 				
 				catch(error) {
 				
-					console.log('soStorage: (' + command + ') callback fails');
+					console.log('soStorage: (' + command + ') callback invalid/fails');
 				}
 				
 				
@@ -141,7 +141,7 @@ soStorage.command = function(command, parameter1, parameter2, parameter3) {
 
 		connection.onerror = function(event) {
 		
-			console.log(action, 'failed', event);
+			console.log('(' + command, ') fails', event);
 		}
 	});
 	
