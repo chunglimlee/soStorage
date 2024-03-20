@@ -1,0 +1,89 @@
+<html>
+<body>
+
+<script src="soStorage.js"></script>
+
+
+<script>
+
+
+
+// ------------------------------------------- TESTS FOR soStorage$ -------------------------------------------
+
+// set values with some primary data types
+
+soStorage.set('item0', true);
+soStorage.set('item1', 100);
+soStorage.set('item2', 'this is a string');
+soStorage.set('item3', [12, 38, 55]);
+soStorage.set('item4', {a: 1, b: 2, c: 3});
+
+
+
+// callback style: get the value by the name of 'item2' then output the value to console
+
+soStorage.get('item2', function(result) {
+
+	console.log('get with callback style:', result);
+});
+
+
+
+// promise style: get the value by the name of 'item3' then output the value to console
+
+soStorage.get('item3').then(function(result) {
+
+	console.log('get with promise style:', result);
+});
+
+
+
+// async/await style: get the value by the name of 'item4' then output the value to console
+
+async function myFunction() {
+
+	var result = await soStorage.get('item4');
+	
+	console.log('get with async/await style:', result);
+}
+
+myFunction();
+
+
+
+// using arrow function: get a list all available pairs (name to value) then output the list to console
+
+soStorage.list(result => console.log('get a list using arrow function:', result) );
+
+
+
+// error checking when getting a value by name of 'item6' that it is not exist
+
+soStorage.get('item6', result => console.log(result) );
+
+
+
+// error checking when invalid callback is supplied
+
+soStorage.get('item0', 123);
+
+
+
+// remove 'item3'
+
+soStorage.remove('item3');
+soStorage.list(result => console.log('"item3" is removed', result) );
+
+
+
+// clear all
+
+soStorage.clear();
+soStorage.list(result => console.log('everything is cleared', result) );
+
+
+
+</script>
+
+</body>
+</html>
