@@ -1,5 +1,5 @@
 # soStorage
-soStorage is a small single file and a non-dependent JavaScript library that provides an offline Local Storage alike in browsers with native indexedDB's data storage advantages.
+soStorage is a small single file and a zero dependent JavaScript library that provides an offline Local Storage alike in browsers with native indexedDB's data storage advantages.
 It aims to be simple to use with supports to callbacks, promises, and async/await.
 
 ### Importing the library into projects
